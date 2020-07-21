@@ -27,7 +27,7 @@ public class RegesterPage extends util {
 
     public void userEnterREgistrationDetails(){
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        TypeText(_firstName,"par");
+        TypeText(_firstName,"pmm");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         TypeText(_lastName,"matel");
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);

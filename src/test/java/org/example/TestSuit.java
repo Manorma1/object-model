@@ -1,7 +1,10 @@
 package org.example;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TestSuit extends BaseTest {
@@ -14,6 +17,9 @@ public class TestSuit extends BaseTest {
     EmailAFriend emailAFriend = new EmailAFriend();
     EmailAFriendInformation emailAFriendInformation =new EmailAFriendInformation();
     Book book = new Book();
+    FacebookPage facebookPage = new FacebookPage();
+    OnlineStore onlineStore = new OnlineStore();
+    IFrame iFrame=new IFrame();
 
 
 
@@ -33,7 +39,16 @@ public class TestSuit extends BaseTest {
         // click on regester
         regesterPage.userClickOnRegester();
         //user regester susccesfully;
-        regesterSuccessPage.userIsOnRegesterPage();}
+        //regesterSuccessPage.userIsOnRegesterPage();
+    }
+    @Test
+    public void VeryFyEachProductHaveName(){
+
+
+        List<WebElement> ProductName = driver.findElements(By.xpath("//div[contains(@class,'product')]/div[2]/div/div[1]/div[2]/h2/a"));
+for (WebElement Product :ProductName)
+        System.out.println(Product.getText());
+    }
 
 
 
@@ -45,7 +60,7 @@ public void EmailAFriendSuccseccfully(){
     homePage.clickOnRegesterButton();
     //enter detail
     regesterPage.userEnterREgistrationDetails();
-    //clickonn regester;
+    //click on regester;
     regesterPage.userClickOnRegester();
     //click n computer
     homePage.ClickOnComputer();
@@ -77,6 +92,63 @@ public void userAbleAddToCart(){
 
 
 }
+@Test(priority = 3)
+public void userClickOnSearch(){
+
+        // click on search
+    homePage.clickOnsearch();
+    // Alert massege
+    homePage.Alert();
+
+}
+@Test(priority = 4)
+public void widowpopup(){
+        homePage.clickOnFacebook();
+        facebookPage.UserIsOnHomePage();
+        facebookPage.creatAPageAssertText();
+        facebookPage.assertByColour();
+        facebookPage.backtoparent();
+}
+@Test(priority = 5)
+public void UserverifyToComment(){
+        homePage.detailMassege();
+        onlineStore.assertOnlinePage();
+        onlineStore.typeTitleAndComment();
+        onlineStore.assertForComment();
+        onlineStore.assertForTitleText();
+
+
+
+
+
+}
+@Test(priority = 6)
+public void userAbleToSeeCurrentCurrancy(){
+        homePage.currency();
+        homePage.assertForcurrency();
+
+
+
+
+
+}
+@Test(priority = 7)
+public void userPutInformationInIframe(){
+       iFrame.SwichIframe();
+      iFrame.animalName();
+
+        iFrame.animal();
+
+
+
+
+
+
+
+}
+
+
+
 
 
 
